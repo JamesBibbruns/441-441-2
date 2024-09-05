@@ -862,3 +862,7 @@ button:last-of-type:hover {
   text-align: center;
   margin-left: 37%;
 }
+
+#login-signup-link a{
+  color: red;
+}
