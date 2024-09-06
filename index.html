@@ -62,7 +62,7 @@
     <!-- Registration Form -->
     <div class="registration-form">
         <h2>Registration</h2>
-        <form action="your-server-endpoint" method="post">
+        <form id="registrationForm" action="your-server-endpoint" method="post" onsubmit="redirectToRegister(event)">
             <input type="text" id="name" name="name" placeholder="Name" required>
             <button type="submit">Register</button>
         </form>
