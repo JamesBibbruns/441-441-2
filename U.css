@@ -784,85 +784,104 @@ button:last-of-type:hover {
 
 
 
-
-
-
-
 /* Login form container styling */
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
 .login-form {
-  background-color: #fff;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  width: 350px;
-  text-align: center;
-  margin-left: 37%;
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-/* Heading style */
-.login-form h2 {
-  color: #333;
-  margin-bottom: 20px;
+.login-form form {
+    display: flex;
+    flex-direction: column;
 }
 
-/* Label styling */
 .login-form label {
-  font-weight: bold;
-  display: block;
-  margin-bottom: 5px;
-  color: #555;
-  text-align: left;
+    margin-bottom: 5px;
 }
 
-/* Input field styling */
-.login-form input[type="text"],
-.login-form input[type="password"] {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
+.login-form input {
+    margin-bottom: 15px;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
-/* Button styling */
 .login-form button {
-  width: 100%;
-  padding: 10px;
-  background-color: #28a745;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-bottom: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
 }
 
-/* Hover effect for buttons */
-.login-form button:hover {
-  background-color: #218838;
-}
-
-/* Styling for the "Click here to Register" button */
 .login-form button[type="button"] {
-  background-color: #007bff;
+    background-color: #f44336;
 }
 
-.login-form button[type="button"]:hover {
-  background-color: #0069d9;
+.login-form button:hover {
+    opacity: 0.9;
 }
 
 
-/* Register form container styling */
-#register-form {
-  background-color: #fff;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  width: 350px;
-  text-align: center;
-  margin-left: 37%;
+.register-form {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
+.register-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.register-form label {
+    margin-bottom: 5px;
+}
+
+.register-form input {
+    margin-bottom: 15px;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.register-form button {
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+.register-form button:hover {
+    opacity: 0.9;
+}
 #login-signup-link a{
   color: red;
 }
