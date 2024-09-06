@@ -1,53 +1,94 @@
 /'James Renhuaiyuan 223190623'/
-const addButton = document.querySelectorAll('.add'); // Select all elements with class 'add'
-const cartTable = document.getElementById('cart-table'); // Select the cart table element by its ID
-const cartTotal = document.getElementById('cart-total'); // Select the element showing the cart total by its ID
-let totalPrice = 0; // Initialize total price as 0
+// Get all "Add" buttons
+const addButtons = document.querySelectorAll('.button.add');
 
-// Loop through each "add" button and add an event listener
-addButton.forEach(button => {
-  button.addEventListener('click', function() {
-    // Get the course name, price, and quantity from the clicked button's parent element
-    const course = this.parentNode.querySelector('h2').textContent;
-    const price = parseInt(this.parentNode.querySelector('p').textContent);
-    const quantity = parseInt(this.parentNode.querySelector('.quantity-input').value);
-    const total = price * quantity; // Calculate the total price for this item
+// Get the cart table and total amount element
+const cartTable = document.getElementById('cart-table');
+const cartTotal = document.getElementById('cart-total');
 
-    // Create a new row for the cart
-    const row = document.createElement('tr');
-    row.innerHTML = `
-      <td>${course}</td>
-      <td>${quantity}</td>
-      <td>$${total.toFixed(2)}</td>
-      <td><button class="remove-btn">Remove</button></td>
-    `;
-    cartTable.appendChild(row); // Add the new row to the cart table
+// Cart object to store courses and their quantities
+let cart = {};
 
-    totalPrice += total; // Update the total price
-    cartTotal.textContent = totalPrice.toFixed(2); // Update the displayed total price
+// Attach event listener to each "Add" button
+addButtons.forEach((button, index) => {
+  button.addEventListener('click', () => {
+    // Get course information
+    const courseDiv = button.closest('.course');
+    const courseId = courseDiv.querySelector('h2').textContent;
+    const courseFee = parseFloat(courseDiv.querySelector('h3 p').textContent);
+    const courseQuantity = parseInt(courseDiv.querySelector('.quantity-input').value);
 
-    // Add event listener to the "Remove" button to remove the item from the cart
-    const removeButton = row.querySelector('.remove-btn');
-    removeButton.addEventListener('click', function() {
-      cartTable.removeChild(row); // Remove the row from the table
-      totalPrice -= total; // Subtract the item's total from the total price
-      cartTotal.textContent = totalPrice.toFixed(2); // Update the total price display
-    });
+    // If the course is already in the cart, update the quantity
+    if (cart[courseId]) {
+      cart[courseId].quantity += courseQuantity;
+    } else {
+      // Add new course to the cart
+      cart[courseId] = {
+        fee: courseFee,
+        quantity: courseQuantity
+      };
+    }
+
+    // Update the cart display
+    updateCart();
   });
 });
 
-// Function to handle checkout action
-function checkout623() {
-  alert(`Total amount to pay: $${totalPrice.toFixed(2)}`);
-  // Additional checkout logic can be added here
+// Function to update the cart display
+function updateCart() {
+  // Clear the cart table
+  cartTable.innerHTML = '';
+
+  // Iterate through the cart object and update the table
+  let total = 0;
+  for (const courseId in cart) {
+    const item = cart[courseId];
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td>${courseId}</td>
+      <td>$${item.fee}</td>
+      <td>${item.quantity}</td>
+      <td>$${(item.fee * item.quantity).toFixed(2)}</td>
+      <td><button class="remove" data-course="${courseId}">Remove</button></td>
+    `;
+    cartTable.appendChild(row);
+
+    // Calculate the total amount
+    total += item.fee * item.quantity;
+  }
+
+  // Update the total amount display
+  cartTotal.textContent = total.toFixed(2);
+
+  // Attach event listener to each "Remove" button
+  const removeButtons = document.querySelectorAll('.remove');
+  removeButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const courseId = button.getAttribute('data-course');
+      delete cart[courseId]; // Remove the course from the cart
+      updateCart(); // Refresh the cart display
+    });
+  });
 }
 
-// Function to clear the entire cart
-function clearCart623() {
-  cartTable.innerHTML = ''; // Remove all rows from the cart table
-  totalPrice = 0; // Reset total price
-  cartTotal.textContent = totalPrice.toFixed(2); // Reset displayed total price
+// Checkout function
+function checkout() {
+  // If the cart is empty, show an alert
+  if (Object.keys(cart).length === 0) {
+    alert('Your cart is empty.');
+    return;
+  }
+  // Display a thank you message and the total amount
+  alert('Thank you for your purchase! Total: $' + cartTotal.textContent);
+  clearCart(); // Clear the cart after checkout
 }
+
+// Function to clear the cart
+function clearCart() {
+  cart = {}; // Reset the cart object
+  updateCart(); // Refresh the cart display
+}
+
 
 var usernameCookieName623 = "username"; // Cookie name for storing username
 var passwordCookieName623 = "password"; // Cookie name for storing password
