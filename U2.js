@@ -210,3 +210,10 @@ function validateForm623() {
         return false; // Prevent form submission
     }
 }
+
+function redirectToRegister(event) {
+    event.preventDefault(); // Prevent form submission
+
+    // Redirect to the register page
+    window.location.href = "register.html";
+}
