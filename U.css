@@ -880,7 +880,3 @@ button:last-of-type:hover {
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
-#login-signup-link a{
-  color: red;
-}
