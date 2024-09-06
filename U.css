@@ -785,11 +785,6 @@ button:last-of-type:hover {
 
 
 /* Login form container styling */
-body, html {
-    height: 100%;
-    margin: 0;
-}
-
 .login-form {
     width: 300px;
     padding: 20px;
@@ -838,7 +833,6 @@ body, html {
     opacity: 0.9;
 }
 
-
 .register-form {
     width: 300px;
     padding: 20px;
@@ -882,6 +876,7 @@ body, html {
 .register-form button:hover {
     opacity: 0.9;
 }
+
 #login-signup-link a{
   color: red;
 }
