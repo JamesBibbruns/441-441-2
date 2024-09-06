@@ -833,19 +833,6 @@ button:last-of-type:hover {
     opacity: 0.9;
 }
 
-.register-form {
-    width: 300px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #f9f9f9;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
 .register-form form {
     display: flex;
     flex-direction: column;
@@ -873,8 +860,25 @@ button:last-of-type:hover {
     cursor: pointer;
 }
 
+.register-form button[type="button"] {
+    background-color: #f44336;
+}
+
 .register-form button:hover {
     opacity: 0.9;
+}
+
+.register-form {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 #login-signup-link a{
