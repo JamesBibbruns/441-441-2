@@ -114,7 +114,10 @@ function setCookie623(name, value, days) {
 // Function to check if the username cookie exists and update the login/signup link
 function checkCookie623() {
     var username = getCookie623(usernameCookieName623);
-    if (username) {
+    if (!username) {
+        alert("Please login in");
+        window.location.href = "login.html"; // Redirect to login page if not logged in
+    } else {
         document.getElementById("login-signup-link").innerHTML = "Welcome " + username + " & Sign out";
     }
 }
@@ -125,6 +128,7 @@ function navigationClick623() {
         link.addEventListener("click", function(event) {
             if (link.href.includes("courseware.html") && !getCookie623(usernameCookieName623)) {
                 event.preventDefault(); // Prevent navigation if not logged in
+                alert("Please login in"); // Show alert if not logged in
                 window.location.href = "login.html"; // Redirect to login page
             }
         });
@@ -139,7 +143,7 @@ function registerFormSubmit623() {
         var password = document.getElementById("password").value;
         setCookie623(usernameCookieName623, username, 7); // Set cookies for username and password
         setCookie623(passwordCookieName623, password, 7);
-        window.location.href = "login.html"; // Redirect to login page after registration
+        window.location.href = "index.html"; // Redirect to index page after registration
     });
 }
 
@@ -250,6 +254,13 @@ function validateForm623() {
         alert("Please fill all the fields."); // Show alert if validation fails
         return false; // Prevent form submission
     }
+}
+
+function redirectToRegister(event) {
+    event.preventDefault(); // Prevent form submission
+
+    // Redirect to the register page
+    window.location.href = "register.html";
 }
 
 function redirectToRegister(event) {
