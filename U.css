@@ -858,6 +858,71 @@ button:last-of-type:hover {
   }
 }
 
+/* Register Form Styling */
+.register-form {
+  max-width: 400px;
+  margin: 2em auto;
+  padding: 2em;
+  background: #f5f5f5;
+  border: 1px solid #e7e7e7;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border-radius: 5px;
+}
+
+.register-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.register-form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.register-form input[type="text"],
+.register-form input[type="password"] {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.register-form input[type="text"]:focus,
+.register-form input[type="password"]:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.register-form button {
+  padding: 10px 20px;
+  margin: 5px 0;
+  border: none;
+  border-radius: 4px;
+  background-color: #5cb85c;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.register-form button[type="submit"] {
+  background-color: #4CAF50;
+}
+
+.register-form button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .register-form {
+    width: 90%;
+    margin: 2em 5%;
+  }
+}
+
 .logo-account img{
   width: 100px;
   height: 100px; 
