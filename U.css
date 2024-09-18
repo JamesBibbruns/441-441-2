@@ -793,44 +793,9 @@ button:last-of-type:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: #f9f9f9;
     position: absolute;
-    top: 50%;
+    top: 20px; /* Change from 50% to 20px */
     left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.login-form form {
-    display: flex;
-    flex-direction: column;
-}
-
-.login-form label {
-    margin-bottom: 5px;
-}
-
-.login-form input {
-    margin-bottom: 15px;
-    padding: 8px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.login-form button {
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    background-color: #4CAF50;
-    color: white;
-    cursor: pointer;
-}
-
-.login-form button[type="button"] {
-    background-color: #f44336;
-}
-
-.login-form button:hover {
-    opacity: 0.9;
+    transform: translateX(-50%);
 }
 
 .register-form form {
