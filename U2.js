@@ -100,18 +100,6 @@ function getCookie(name) {
     if (parts.length == 2) return parts.pop().split(";").shift();
 }
 
-// Check if the user is logged in
-function checkLoginStatus() {
-    var username = getCookie(usernameCookieName);  // Retrieve username from cookie
-
-    // If username is not found in cookie, show an alert and prompt login
-    if (!username) {
-        alert("Please log in.");
-        // Optionally, redirect to the login page
-        // window.location.href = "login.html";
-    }
-}
-
 // Set cookie
 function setCookie(name, value, days) {
     var expires = "";
