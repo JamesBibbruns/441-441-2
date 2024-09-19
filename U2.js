@@ -121,7 +121,10 @@ function checkCookie623() {
         document.getElementById("login-signup-link").innerHTML = "Welcome " + username + " & Sign out";
     }
 }
-
+// Call checkCookie623 when the page loads
+window.onload = function() {
+  checkCookie623(); // This will run when the page loads
+};
 // Function to handle navigation clicks and redirect users to login if not logged in
 function navigationClick623() {
     document.querySelectorAll("nav a").forEach(function(link) {
